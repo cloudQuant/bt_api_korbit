@@ -1,0 +1,23 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "bt_api_korbit"
+version = "0.1.0"
+description = "Korbit exchange plugin for bt_api"
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+authors = [{name = "cloudQuant"}]
+keywords = ["bt_api", "korbit", "exchange"]
+classifiers = ["License :: OSI Approved :: MIT License"]
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff", "mypy"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/bt_api_korbit"]
+
+[tool.ruff]
+line-length = 100
