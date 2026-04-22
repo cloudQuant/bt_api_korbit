@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from typing import Any, Optional
 
-from bt_api_base.feeds.capability import Capability
 from bt_api_korbit.feeds.live_korbit.request_base import KorbitRequestData
 
 

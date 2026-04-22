@@ -3,9 +3,10 @@ from __future__ import annotations
 from typing import Any
 
 from bt_api_base.balance_utils import nested_balance_handler as _korbit_balance_handler
+from bt_api_base.registry import ExchangeRegistry
+
 from bt_api_korbit.exchange_data import KorbitExchangeDataSpot
 from bt_api_korbit.feeds.live_korbit.spot import KorbitRequestDataSpot
-from bt_api_base.registry import ExchangeRegistry
 
 
 def _korbit_spot_subscribe_handler(

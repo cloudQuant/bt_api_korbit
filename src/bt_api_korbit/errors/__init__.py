@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from bt_api_base.error import ErrorTranslator, UnifiedErrorCode, UnifiedError, ErrorCategory
+from bt_api_base.error import ErrorCategory, ErrorTranslator, UnifiedError, UnifiedErrorCode
 
 
 class KorbitErrorTranslator(ErrorTranslator):

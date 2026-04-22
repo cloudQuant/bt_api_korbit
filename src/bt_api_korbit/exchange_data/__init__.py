@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from bt_api_base.containers.exchanges.exchange_data import ExchangeData
 
-
 _FALLBACK_REST_PATHS = {
     "get_tick": "GET /v1/ticker/detailed",
     "get_depth": "GET /v1/orderbook",

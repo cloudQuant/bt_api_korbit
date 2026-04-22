@@ -11,9 +11,19 @@ pip install bt_api_korbit
 ```
 
 ```python
-from bt_api_korbit import KorbitApi
-feed = KorbitApi(api_key="your_key", secret="your_secret")
-ticker = feed.get_ticker("BTCUSDT")
+from bt_api_py import BtApi
+
+api = BtApi(
+    exchange_kwargs={
+        "KORBIT___SPOT": {
+            "api_key": "your_key",
+            "secret": "your_secret",
+        }
+    }
+)
+
+ticker = api.get_tick("KORBIT___SPOT", "BTCUSDT")
+print(ticker)
 ```
 
 ## 中文
@@ -27,9 +37,19 @@ pip install bt_api_korbit
 ```
 
 ```python
-from bt_api_korbit import KorbitApi
-feed = KorbitApi(api_key="your_key", secret="your_secret")
-ticker = feed.get_ticker("BTCUSDT")
+from bt_api_py import BtApi
+
+api = BtApi(
+    exchange_kwargs={
+        "KORBIT___SPOT": {
+            "api_key": "your_key",
+            "secret": "your_secret",
+        }
+    }
+)
+
+ticker = api.get_tick("KORBIT___SPOT", "BTCUSDT")
+print(ticker)
 ```
 
 ## API Reference
