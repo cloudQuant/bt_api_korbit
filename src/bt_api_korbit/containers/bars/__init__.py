@@ -6,7 +6,6 @@ from typing import Any
 
 from bt_api_base._compat import Self
 from bt_api_base.containers.bars.bar import BarData
-from bt_api_base.functions.utils import from_dict_get_float
 
 
 class KorbitBarData(BarData):

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import json
 import time
-from typing import Any, Optional
+from typing import Any
 
 from bt_api_base._compat import Self
 from bt_api_base.containers.orders.order import OrderData

@@ -6,7 +6,7 @@ from typing import Any
 
 from bt_api_base._compat import Self
 from bt_api_base.containers.accounts.account import AccountData
-from bt_api_base.functions.utils import from_dict_get_float, from_dict_get_string
+from bt_api_base.functions.utils import from_dict_get_string
 
 
 class KorbitAccountData(AccountData):
