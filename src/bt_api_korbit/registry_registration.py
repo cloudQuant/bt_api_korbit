@@ -9,9 +9,7 @@ from bt_api_korbit.exchange_data import KorbitExchangeDataSpot
 from bt_api_korbit.feeds.live_korbit.spot import KorbitRequestDataSpot
 
 
-def _korbit_spot_subscribe_handler(
-    data_queue: Any, exchange_params: Any, topics: Any, bt_api: Any
-) -> None:
+def _korbit_spot_subscribe_handler(data_queue: Any, exchange_params: Any, topics: Any, bt_api: Any) -> None:
     topic_list = [i["topic"] for i in topics]
     bt_api.log(f"Korbit Spot topics requested: {topic_list}")
 

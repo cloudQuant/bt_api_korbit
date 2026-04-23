@@ -10,9 +10,7 @@ from bt_api_base.functions.utils import from_dict_get_float, from_dict_get_strin
 
 
 class KorbitBalanceData(BalanceData):
-    def __init__(
-        self, balance_info: Any, asset_type: str = "SPOT", has_been_json_encoded: bool = False
-    ):
+    def __init__(self, balance_info: Any, asset_type: str = "SPOT", has_been_json_encoded: bool = False):
         super().__init__(balance_info, has_been_json_encoded)
         self.exchange_name = "KORBIT"
         self.asset_type = asset_type

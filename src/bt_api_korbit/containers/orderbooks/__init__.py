@@ -19,9 +19,7 @@ class KorbitOrderBookData(OrderBookData):
         super().__init__(orderbook_info, has_been_json_encoded)
         self.exchange_name = "KORBIT"
         self.symbol_name = symbol_name
-        self.orderbook_data: dict[str, Any] | None = (
-            orderbook_info if has_been_json_encoded else None
-        )
+        self.orderbook_data: dict[str, Any] | None = orderbook_info if has_been_json_encoded else None
         self.bids: list[list[float]] = []
         self.asks: list[list[float]] = []
         self.timestamp: int | None = None

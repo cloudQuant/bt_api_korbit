@@ -13,9 +13,7 @@ class KorbitRequestDataSpot(KorbitRequestData):
         path, params, extra = self._get_tick(symbol, extra_data, **kwargs)
         return self.request(path, params, extra_data=extra)
 
-    async def async_get_tick(
-        self, symbol: str, extra_data: Optional[dict[str, Any]] = None, **kwargs: Any
-    ):
+    async def async_get_tick(self, symbol: str, extra_data: Optional[dict[str, Any]] = None, **kwargs: Any):
         path, params, extra = self._get_tick(symbol, extra_data, **kwargs)
         return await self.async_request(path, params, extra_data=extra)
 
@@ -47,9 +45,7 @@ class KorbitRequestDataSpot(KorbitRequestData):
         path, params, extra = self._get_depth(symbol, extra_data, **kwargs)
         return self.request(path, params, extra_data=extra)
 
-    async def async_get_depth(
-        self, symbol: str, extra_data: Optional[dict[str, Any]] = None, **kwargs: Any
-    ):
+    async def async_get_depth(self, symbol: str, extra_data: Optional[dict[str, Any]] = None, **kwargs: Any):
         path, params, extra = self._get_depth(symbol, extra_data, **kwargs)
         return await self.async_request(path, params, extra_data=extra)
 
@@ -81,9 +77,7 @@ class KorbitRequestDataSpot(KorbitRequestData):
         path, params, extra = self._get_exchange_info(extra_data, **kwargs)
         return self.request(path, params, extra_data=extra)
 
-    async def async_get_exchange_info(
-        self, extra_data: Optional[dict[str, Any]] = None, **kwargs: Any
-    ):
+    async def async_get_exchange_info(self, extra_data: Optional[dict[str, Any]] = None, **kwargs: Any):
         path, params, extra = self._get_exchange_info(extra_data, **kwargs)
         return await self.async_request(path, params, extra_data=extra)
 
@@ -182,9 +176,7 @@ class KorbitRequestDataSpot(KorbitRequestData):
         extra_data: Optional[dict[str, Any]] = None,
         **kwargs: Any,
     ):
-        path, body, extra = self._make_order(
-            symbol, side, order_type, amount, price, extra_data, **kwargs
-        )
+        path, body, extra = self._make_order(symbol, side, order_type, amount, price, extra_data, **kwargs)
         return self.request(path, body=body, extra_data=extra)
 
     async def async_make_order(
@@ -197,9 +189,7 @@ class KorbitRequestDataSpot(KorbitRequestData):
         extra_data: Optional[dict[str, Any]] = None,
         **kwargs: Any,
     ):
-        path, body, extra = self._make_order(
-            symbol, side, order_type, amount, price, extra_data, **kwargs
-        )
+        path, body, extra = self._make_order(symbol, side, order_type, amount, price, extra_data, **kwargs)
         return await self.async_request(path, body=body, extra_data=extra)
 
     def _make_order(
@@ -244,21 +234,15 @@ class KorbitRequestDataSpot(KorbitRequestData):
             return [input_data], True
         return [], False
 
-    def cancel_order(
-        self, order_id: Any, extra_data: Optional[dict[str, Any]] = None, **kwargs: Any
-    ):
+    def cancel_order(self, order_id: Any, extra_data: Optional[dict[str, Any]] = None, **kwargs: Any):
         path, body, extra = self._cancel_order(order_id, extra_data, **kwargs)
         return self.request(path, body=body, extra_data=extra)
 
-    async def async_cancel_order(
-        self, order_id: Any, extra_data: Optional[dict[str, Any]] = None, **kwargs: Any
-    ):
+    async def async_cancel_order(self, order_id: Any, extra_data: Optional[dict[str, Any]] = None, **kwargs: Any):
         path, body, extra = self._cancel_order(order_id, extra_data, **kwargs)
         return await self.async_request(path, body=body, extra_data=extra)
 
-    def _cancel_order(
-        self, order_id: Any, extra_data: Optional[dict[str, Any]] = None, **kwargs: Any
-    ):
+    def _cancel_order(self, order_id: Any, extra_data: Optional[dict[str, Any]] = None, **kwargs: Any):
         path = self._params.get_rest_path("cancel_order")
         body = {
             "id": order_id,

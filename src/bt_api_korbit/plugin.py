@@ -8,9 +8,7 @@ from bt_api_korbit import __version__
 from bt_api_korbit.registry_registration import register_korbit
 
 
-def register_plugin(
-    registry: type[ExchangeRegistry], runtime_factory: type[GatewayRuntimeRegistrar]
-) -> PluginInfo:
+def register_plugin(registry: type[ExchangeRegistry], runtime_factory: type[GatewayRuntimeRegistrar]) -> PluginInfo:
     register_korbit(registry)
 
     return PluginInfo(

@@ -29,17 +29,13 @@ class KorbitErrorTranslator(ErrorTranslator):
         error_lower = error_msg.lower()
 
         if "token" in error_lower or "auth" in error_lower:
-            return cls._create_unified_error(
-                UnifiedErrorCode.INVALID_API_KEY, "Authentication error", venue, error_msg
-            )
+            return cls._create_unified_error(UnifiedErrorCode.INVALID_API_KEY, "Authentication error", venue, error_msg)
         elif "insufficient" in error_lower or "balance" in error_lower:
             return cls._create_unified_error(
                 UnifiedErrorCode.INSUFFICIENT_BALANCE, "Insufficient balance", venue, error_msg
             )
         elif "order not found" in error_lower:
-            return cls._create_unified_error(
-                UnifiedErrorCode.ORDER_NOT_FOUND, "Order not found", venue, error_msg
-            )
+            return cls._create_unified_error(UnifiedErrorCode.ORDER_NOT_FOUND, "Order not found", venue, error_msg)
         elif "rate limit" in error_lower:
             return cls._create_unified_error(
                 UnifiedErrorCode.RATE_LIMIT_EXCEEDED, "Rate limit exceeded", venue, error_msg
@@ -49,9 +45,7 @@ class KorbitErrorTranslator(ErrorTranslator):
                 UnifiedErrorCode.EXCHANGE_MAINTENANCE, "System under maintenance", venue, error_msg
             )
 
-        return cls._create_unified_error(
-            UnifiedErrorCode.INTERNAL_ERROR, error_msg, venue, error_msg
-        )
+        return cls._create_unified_error(UnifiedErrorCode.INTERNAL_ERROR, error_msg, venue, error_msg)
 
     @classmethod
     def translate_dict_error(cls, error_dict: dict, venue: str):
@@ -65,9 +59,7 @@ class KorbitErrorTranslator(ErrorTranslator):
 
         if error_code in cls.ERROR_MAP:
             unified_code, default_msg = cls.ERROR_MAP[error_code]
-            return cls._create_unified_error(
-                unified_code, message or default_msg, venue, f"{error_code}: {message}"
-            )
+            return cls._create_unified_error(unified_code, message or default_msg, venue, f"{error_code}: {message}")
 
         return cls.translate_string_error(f"{error_code}: {message}", venue)
 
@@ -111,6 +103,4 @@ class KorbitErrorTranslator(ErrorTranslator):
 
     @classmethod
     def _translate_fallback(cls, raw_error, venue: str):
-        return cls._create_unified_error(
-            UnifiedErrorCode.INTERNAL_ERROR, "Unknown error", venue, str(raw_error)
-        )
+        return cls._create_unified_error(UnifiedErrorCode.INTERNAL_ERROR, "Unknown error", venue, str(raw_error))
